@@ -15,7 +15,7 @@ Card.defaultProp = {
     reverse: false
 }
 
-Card.prototype = {
+Card.propTypes = {
     children: Protypes.node.isRequired,
     reverse: Protypes.bool,
 }

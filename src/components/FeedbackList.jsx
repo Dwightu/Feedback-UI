@@ -17,7 +17,7 @@ function FeedbackList({ feedback, handleDelete }) {
     )
 }
 
-FeedbackList.prototype = {
+FeedbackList.propTypes = {
     // feedback: Protypes.array
     feedback: Protypes.arrayOf(
         Protypes.shape({

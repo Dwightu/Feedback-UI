@@ -9,7 +9,8 @@ import FeedbackData from "./data/FeedbackData";
 import FeedbackStats from "./components/FeedbackStats";
 
 import FeedbackList from "./components/FeedbackList";
-import Card from "./components/shared/Card";
+
+import FeedbackForm from "./components/FeedbackForm";
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
 
     const deleteFeedback = (id) => {
         if (window.confirm(`Are you sure you want to delete the comment ${id} ?`)) {
-            setFeedback(feedback.filter((item) => item.id != id))
+            setFeedback(feedback.filter((item) => item.id !== id))
         }
     }
 
@@ -27,6 +28,7 @@ function App() {
         <>
             <Header />
             <div className="container">
+                <FeedbackForm></FeedbackForm>
                 <FeedbackStats feedback={feedback} />
                 <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
 
