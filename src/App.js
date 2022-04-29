@@ -12,6 +12,8 @@ import FeedbackList from "./components/FeedbackList";
 
 import FeedbackForm from "./components/FeedbackForm";
 
+import { v4 as uuidv4 } from 'uuid'
+
 function App() {
 
     //Grobal State
@@ -23,12 +25,17 @@ function App() {
         }
     }
 
+    const addFeedback = (newFeedback) => {
+        newFeedback.id = uuidv4()
+        setFeedback([newFeedback, ...feedback])
+    }
+
 
     return (
         <>
             <Header />
             <div className="container">
-                <FeedbackForm></FeedbackForm>
+                <FeedbackForm handleAdd={addFeedback}></FeedbackForm>
                 <FeedbackStats feedback={feedback} />
                 <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
 
