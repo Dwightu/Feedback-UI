@@ -14,6 +14,17 @@ import FeedbackForm from "./components/FeedbackForm";
 
 import { v4 as uuidv4 } from 'uuid'
 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
+import AboutIconLink from "./components/AboutIconLink";
+
+import AboutPage from './pages/AboutPage'
+
+import Post from "./components/Post";
+
+//Better way of managing global state
+import { FeedbackProvider } from './context/FeedbackContext'
+
 function App() {
 
     //Grobal State
@@ -32,23 +43,36 @@ function App() {
 
 
     return (
-        <>
-            <Header />
-            <div className="container">
-                <FeedbackForm handleAdd={addFeedback}></FeedbackForm>
-                <FeedbackStats feedback={feedback} />
-                <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+        <FeedbackProvider>
+            <Router>
+                <Header />
+                <div className="container">
+                    <Routes>
+                        <Route exact path="/" element={
+                            <>
+                                <FeedbackForm handleAdd={addFeedback}></FeedbackForm>
+                                <FeedbackStats feedback={feedback} />
+                                <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+                            </>
+                        }>
+                        </Route>
 
-            </div>
-        </>
+                        <Route path='/about' element={<AboutPage />} />
+                        <Route path='/post/:id' element={<Post />} />
+                    </Routes>
+
+                    <AboutIconLink></AboutIconLink>
+                </div>
+            </Router >
+        </ FeedbackProvider>
     )
 }
 
 
 
 // function App() {
-//     return React.createElement('div', { className: 'container' },
-//         React.createElement('h1', {}, 'My app'))
+//     return React.createElement('div', {className: 'container' },
+//         React.createElement('h1', { }, 'My app'))
 // }
 
 
