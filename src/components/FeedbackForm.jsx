@@ -5,6 +5,10 @@ import Button from './shared/Button'
 
 import RatingSelect from './RatingSelect'
 
+import { motion, AnimatePresence } from 'framer-motion'
+
+
+
 function FeedbackForm({ handleAdd }) {
 
     const [text, setText] = useState('')
