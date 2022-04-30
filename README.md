@@ -2,6 +2,12 @@
 
 This is a project made by me which helps me pratice React-Skills. It allows users to add, update and delete feedback. It uses a mock REST api with json-server. Inspired by @Brad Traversy .
 
+### Check here: https://feedback-ui-dehui.netlify.app/
+
+### Demo
+![demo](https://github.com/Dwightu/Feedback-UI/blob/master/public/Feedback-UI.png)
+
+
 This project goes over all of the fundamentals of React including...
 
 - Components
@@ -15,7 +21,10 @@ This project goes over all of the fundamentals of React including...
 - Context API
 - HTTP Requests
 
-# Usage
+### Deploy
+* netlify
+
+# Local Usage
 
 ### Install dependencies
 

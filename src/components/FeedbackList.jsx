@@ -11,7 +11,7 @@ import FeedbackContext from "../context/FeedbackContext";
 
 
 function FeedbackList() {
-    const { feedback, handleDelete } = useContext(FeedbackContext)
+    const { feedback } = useContext(FeedbackContext)
 
 
     if (!feedback || feedback.length === 0) {
