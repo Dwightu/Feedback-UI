@@ -232,3 +232,13 @@ input:focus {
         width: 80%;
     }
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #ff6a95;
+    text-align: center;
+}

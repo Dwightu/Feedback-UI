@@ -1,15 +1,15 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Card from "./shared/Card"
 
 import Button from './shared/Button'
 
 import RatingSelect from './RatingSelect'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { useContext } from 'react'
+import FeedbackContext from "../context/FeedbackContext";
 
 
-
-function FeedbackForm({ handleAdd }) {
+function FeedbackForm() {
 
     const [text, setText] = useState('')
 
@@ -18,6 +18,17 @@ function FeedbackForm({ handleAdd }) {
     const [btnDisabled, setBtnDisabled] = useState(true)
 
     const [message, setMessage] = useState('')
+
+    const { addFeedback, feedbackEdit, updateFeedback } = useContext(FeedbackContext)
+
+    useEffect(() => {
+        if (feedbackEdit.edit === true) {
+            setBtnDisabled(false)
+            setText(feedbackEdit.item.text)
+            setRating(feedbackEdit.item.rating)
+        }
+    }, [feedbackEdit])
+
 
     //添加实时更新
     const handleTextChange = (e) => {
@@ -43,8 +54,15 @@ function FeedbackForm({ handleAdd }) {
                 text,
                 rating
             }
+
+            if (feedbackEdit.edit === true) {
+                updateFeedback(feedbackEdit.item.id, newFeedback)
+            } else {
+                addFeedback(newFeedback)
+            }
+
             // console.log(newFeedback)
-            handleAdd(newFeedback);
+
             setText('')
         }
     }
