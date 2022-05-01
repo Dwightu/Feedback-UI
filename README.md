@@ -5,7 +5,7 @@ This is a project made by me which helps me pratice React-Skills. It allows user
 ### Check here: https://feedback-ui-dehui.netlify.app/
 
 ### Demo
-![demo](https://github.com/Dwightu/Feedback-UI/blob/master/public/Feedback-UI.png)
+<img src="https://github.com/Dwightu/Feedback-UI/blob/main/public/Feedback-UI.png" width="500px">
 
 
 This project goes over all of the fundamentals of React including...
